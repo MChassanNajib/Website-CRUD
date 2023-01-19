@@ -14,13 +14,31 @@
           <li><a href="#" class="nav-link px-2 text-white">About</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search Nama Sopir..." aria-label="Search">
-        </form>
+        
 
-        <div class="text-end">
-          <button type="button" class="btn btn-outline-warning me-2" href="/loginview/signoutt">Sign-out</button>
-        </div>
+        <ul class="navbar-nav ms-auto">
+            @auth
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    hi,{{auth()->user()->name}}
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i>Dashboard</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <form action="/sesi/logout" method="get">
+                        @csrf
+                        <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i>LogOut</button>
+                        </form>
+                    </li>
+                </ul>
+            </li> 
+            @else
+            <li class="nav-item">
+                <a class="nav-link" href="/sesi/login"><i class="bi bi-box-arrow-in-right"></i>Login</a>
+            </li>
+            @endauth
+        </ul>
       </div>
     </div>
   </div>

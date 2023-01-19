@@ -3,7 +3,9 @@
 
 use App\Http\Controllers\MuatanController;
 use App\Http\Controllers\BongkaranController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\logincontroller;
+use App\Http\Controllers\registerontroller;
+use App\Http\Controllers\sessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,9 @@ Route::get('/', function () {
     return view('home.home');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard.layouts.main');
+});
 
 route::group(['prefix' => '/muatan'], function(){
     Route::get('/all', [MuatanController:: class, 'index']);
@@ -43,7 +48,14 @@ route::group(['prefix' => '/bongkaran'], function(){
     Route::delete('/delete/{bongkaran}',[BongkaranController::class,'destroy']);
 });
 
+Route::get('/sesi', [SessionController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/sesi/login', [SessionController::class, 'login']);
+Route::get('/sesi/logout', [SessionController::class, 'logout'])->middleware('auth');
+Route::get('/sesi/register', [SessionController::class, 'register'])->middleware('guest');
+Route::post('/sesi/create', [SessionController::class, 'create']);
 
-route::get('/loginview',[LoginController::class,'login']);
-route::post('/loginview/loginsuccess',[LoginController::class,'loginsuccess']);
-route::get('/loginview/signoutt',[LoginController::class,'signoutt']);
+Route::group(["prefix" => "/dashboard"], function(){
+    Route::get('/home', function(){
+        return view('/data.home');
+    })->middleware('auth');
+});

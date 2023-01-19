@@ -1,7 +1,6 @@
 @extends('layout.main')
 @section('container')
     <br>
-    <div class="container">
         <div class="row">
             <div class="col-ad-12">
                 <h1 align="center" class=" text-light">Data Muatan Truck</h1>
@@ -12,7 +11,7 @@
                 @endif
                 <div class="">
                     <div class="card-body">
-                        <a type="button" class="btn btn-light float-end" href="create">Tambah Data Baru</a>
+                        <a type="button" class="btn btn-warning float-end" href="create">Tambah Data Baru</a>
                         <br><br>
                         <table class="table table-dark table-hover">
                             <thead>
@@ -62,5 +61,4 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection

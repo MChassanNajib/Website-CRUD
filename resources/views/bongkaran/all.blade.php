@@ -21,7 +21,7 @@
                 <h1 align="center" class=" text-light">Data Bongkaran Truck</h1>
                 <div class="">
                     <div class="card-body">
-                        <a type="button" class="btn btn-light float-end" href="create">Tambah Data Baru</a>
+                        <a type="button" class="btn btn-warning float-end" href="create">Tambah Data Baru</a>
                         <br><br>
                         <table class="table table-dark table-hover">
                             <thead>

@@ -18,10 +18,12 @@
           <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search Nama Sopir..." aria-label="Search">
         </form>
 
-        <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Sign-In</button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
-        </div>
+        <ul class="nav nav-pills text end">
+          <li class="nav-item"><a href="/sesi" class="btn btn-outline-warning me-2">Sign In</a>
+              <li class="nav-item"><a href="/sesi/register" class="btn btn-warning">Sign Up</a>
+          </li>
+        </ul>
+        
       </div>
     </div>
   </div>
